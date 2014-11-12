@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Signup Form</title>
+<style>
+#header {
+    background-color:#4DDBFF;
+    /* background-image: url("./images/img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    margin-right: 200px; */
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+#box {
+    width: 320px;
+    padding: 10px;
+    margin: 0;
+    background-color:lightpink;
+}
+
+
+</style>
+</head>
+
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+    if(form.first_name.value == "") {
+      alert("Error: First Name cannot be blank!");
+      form.first_name.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if(!re.test(form.first_name.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    }
+
+    if(form.password1.value != "" && form.password1.value == form.password2.value) {
+      if(form.password1.value.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        form.password1.focus();
+        return false;
+      }
+      if(form.password1.value == form.user_name.value) {
+        alert("Error: Password must be different from Username!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[0-9]/;
+      if(!re.test(form.password1.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        form.password1.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.password1.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        form.password1.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.password1.value)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        form.password1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.password1.focus();
+      return false;
+    }
+
+    //alert("You entered a valid password: " + form.password1.value);
+    alert("You entered a valid password: ");
+    return true;
+  }
+
+</script>
+
+
+
+<body background="./images/bg1.jpg">
+<div id="header">
+<h1 id='head1' align="center">WELCOME TO GRID LABORATORY</h1>
+<h2>Welcome to Sign up page</h2></div>
+<div id="box">
+<form name="signupForm"  method="post" action="insertServlet" onsubmit="return checkForm(this);">
+<pre>
+<b>First name</b> : <input type="text" name="first_name" /><br />
+<b>Last name </b> : <input type="text" name="last_name"/ > <br />
+<b>Email id  </b> : <input type="text" name="email_id"/ > <br />
+<b>User name </b> : <input type="text" name="user_name" /><br />
+<b>Password  </b> : <input type="password" name="password1"/ > <br />
+<b>Re-password</b> : <input type="password" name="password2" /> <br />
+  		<input type="submit" value="Submit" /> <input type="reset" value="Clear" /> <br>
+	<br/>
+If you are already registered <a href="loginForm.html"><b>Sign in</b></a>
+</pre>
+</form></div>
+
+</body>
+</html>

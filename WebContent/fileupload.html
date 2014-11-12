@@ -1,0 +1,20 @@
+<%-- 
+    Document   : index
+    Created on : Mar 12, 2014, 2:20:37 PM
+    Author     : Amaresh
+--%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+<jsp:include flush="true" page="fileupload.jsp" />
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<form action="file" method="post" enctype="multipart/form-data">
+Select File to Upload:<input type="file" name="fileName">
+<br>
+<input type="submit" value="Upload">
+</form>
+</body>
+</html>
+
